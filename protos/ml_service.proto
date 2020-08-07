@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "protos/ml_service";
+
+service MachineLearningService {
+  rpc Hello(HelloRequest) returns (HelloResponse) {}
+  rpc DownloadModel(DownloadModelRequest) returns (DownloadModelResponse) {}
+  rpc UploadModel(UploadModelRequest) returns (UploadModelResponse) {}
+
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message DownloadModelRequest {
+  string name = 1;
+}
+
+message DownloadModelResponse {
+  bytes model = 1;
+}
+
+message UploadModelRequest {
+  string name = 1;
+  bytes model = 2;
+}
+
+message UploadModelResponse {
+  string message = 1;
+}
